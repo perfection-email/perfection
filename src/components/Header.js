@@ -66,11 +66,10 @@ const Logo = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-`;
-
-const LogoImage = styled.img`
-  height: 60px;
-  width: auto;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
 `;
 
 const NavMenu = styled.ul`
@@ -274,7 +273,7 @@ const Header = () => {
       <MainNav>
         <NavContent>
           <Logo to="/">
-            <LogoImage src="/assets/images/perfection-logo.png" alt="Perfection Logo" />
+            PERFECTION
           </Logo>
           
           <NavMenu isOpen={mobileMenuOpen}>

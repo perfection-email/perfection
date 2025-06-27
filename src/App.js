@@ -14,6 +14,7 @@ import Environments from './components/Environments';
 import ImmersiveExperiences from './components/ImmersiveExperiences';
 import Quote from './components/Quote';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 const AppContainer = styled.div`
@@ -26,6 +27,7 @@ const AppContainer = styled.div`
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <AppContainer>
         <Header />
         <Routes>
