@@ -6,12 +6,28 @@ import { Link } from 'react-router-dom';
 const ServicesContainer = styled.section`
   padding: 100px 0;
   background: white;
+  
+  @media (max-width: 768px) {
+    padding: 80px 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 60px 0;
+  }
 `;
 
 const ServicesContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 10px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -23,6 +39,16 @@ const SectionTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1.6rem;
   }
 `;
 
@@ -34,12 +60,34 @@ const SectionSubtitle = styled.p`
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    margin-bottom: 60px;
+    max-width: 90%;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    max-width: 95%;
+  }
 `;
 
 const ServicesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 40px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 `;
 
 const ServiceCard = styled.div`
@@ -55,12 +103,30 @@ const ServiceCard = styled.div`
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     background: white;
   }
+  
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 25px 15px;
+  }
 `;
 
 const ServiceIcon = styled.div`
   font-size: 3rem;
   color: #ffa500;
   margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
 `;
 
 const ServiceTitle = styled.h3`
@@ -68,12 +134,33 @@ const ServiceTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 15px;
   color: #333;
+  
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const ServiceDescription = styled.p`
   color: #666;
   line-height: 1.6;
   margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
 `;
 
 const ServiceButton = styled(Link)`
@@ -90,6 +177,18 @@ const ServiceButton = styled(Link)`
 
   &:hover {
     background: #e69500;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    width: 100%;
+    text-align: center;
   }
 `;
 

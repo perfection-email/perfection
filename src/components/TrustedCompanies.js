@@ -5,12 +5,28 @@ const TrustedContainer = styled.section`
   padding: 80px 0;
   background-color: #fff;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 50px 0;
+  }
 `;
 
 const TrustedContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 10px;
+  }
 `;
 
 const TrustedTitle = styled.h2`
@@ -21,6 +37,17 @@ const TrustedTitle = styled.h2`
   
   @media (max-width: 768px) {
     font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
   }
 `;
 
@@ -30,6 +57,14 @@ const TrustedLogos = styled.div`
   justify-content: center;
   gap: 30px;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    gap: 25px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 20px;
+  }
 `;
 
 const TrustedLogo = styled.div`
@@ -45,6 +80,27 @@ const TrustedLogo = styled.div`
   img {
     width: 100%;
     height: auto;
+    filter: grayscale(70%);
+    transition: filter 0.3s ease;
+  }
+  
+  &:hover img {
+    filter: grayscale(0%);
+  }
+  
+  @media (max-width: 768px) {
+    max-width: 120px;
+    padding: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    max-width: 100px;
+    padding: 6px;
+  }
+  
+  @media (max-width: 360px) {
+    max-width: 80px;
+    padding: 4px;
   }
 `;
 

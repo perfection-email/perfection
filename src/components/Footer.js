@@ -1,212 +1,265 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import TrustedCompanies from './TrustedCompanies';
+import { FaInstagram, FaTiktok, FaLinkedin } from 'react-icons/fa';
 
 const FooterContainer = styled.footer`
-  background: #1a1a1a;
+  background: url('/assets/images/bg-projects-page.png');
+  background-size: fit;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
-  padding: 0 0 30px;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    z-index: 1;
+  }
 `;
 
 const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-`;
-
-const FooterGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px;
-  margin-bottom: 50px;
-  padding-top: 50px;
-`;
-
-const FooterSection = styled.div``;
-
-const SectionTitle = styled.h3`
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 25px;
-  color: #ffa500;
-`;
-
-const Logo = styled.div`
-  margin-bottom: 20px;
-`;
-
-const LogoImage = styled.img`
-  height: 50px;
-  width: auto;
-`;
-
-const Description = styled.p`
-  color: #cccccc;
-  line-height: 1.6;
-  margin-bottom: 30px;
-`;
-
-const ContactItem = styled.div`
-  display: flex;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 60px;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  color: #cccccc;
-`;
-
-const ContactIcon = styled.div`
-  color: #ffa500;
-  font-size: 1.1rem;
-`;
-
-const FooterLinks = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const FooterLink = styled.li`
-  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
   
-  a {
-    color: #cccccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    
-    &:hover {
-      color: #ffa500;
-    }
-  }
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-`;
-
-const SocialLink = styled.a`
-  color: #cccccc;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: #ffa500;
-  }
-`;
-
-const FooterBottom = styled.div`
-  border-top: 1px solid #333;
-  padding-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-
   @media (max-width: 768px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 40px;
     text-align: center;
   }
 `;
 
-const Copyright = styled.div`
-  color: #999;
+const LeftSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
-const BottomLinks = styled.div`
-  display: flex;
-  gap: 30px;
-  
-  a {
-    color: #999;
-    text-decoration: none;
-    font-size: 0.9rem;
-    
-    &:hover {
-      color: #ffa500;
-    }
-  }
+const LocationSection = styled.div`
+  margin-bottom: 25px;
+`;
 
+const LocationTitle = styled.h3`
+  color: #ff6b35;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+const PhoneNumber = styled.a`
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #ff6b35;
+  }
+`;
+
+const EmailAddress = styled.a`
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  margin-top: 10px;
+  
+  &:hover {
+    color: #ff6b35;
+  }
+`;
+
+const CenterSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+const LogoContainer = styled.div`
+  background: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  
   @media (max-width: 768px) {
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 60px;
+    height: 60px;
+    padding: 12px;
+  }
+`;
+
+const Logo = styled.img`
+  width: 70px;
+  height: auto;
+  border-radius: 100%;
+  background-color: #1a1a1a;
+`;
+
+const CompanyName = styled.div`
+  text-align: center;
+  margin-top: 0;
+`;
+
+const CompanyTitle = styled.h2`
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const CompanySubtitle = styled.p`
+  font-size: 0.9rem;
+  color: #cccccc;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+`;
+
+const RightSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+`;
+
+const TaglineSection = styled.div`
+  text-align: right;
+  
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+const TaglinePrimary = styled.h3`
+  color: #ff6b35;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+`;
+
+const TaglineSecondary = styled.p`
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+const TaglineTertiary = styled.p`
+  color: #cccccc;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+`;
+
+const SocialIcons = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`;
+
+const SocialIcon = styled.a`
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: #ff6b35;
+    transform: scale(1.2);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
   }
 `;
 
 const Footer = () => {
   return (
-    <FooterContainer id="contact">
-      <TrustedCompanies />
+    <FooterContainer>
       <FooterContent>
-        <FooterGrid>
-          <FooterSection>
-            <Logo>
-              <LogoImage src="/assets/images/perfection-logo.png" alt="Perfection Logo" />
-            </Logo>
-            <Description>
-              Beyond execution, we turn ideas into impact. We handle exhibition design, 
-              events, campaigns, and branding with precision and creativity.
-            </Description>
-            <SocialLinks>
-              <SocialLink href="#"><FaFacebook /></SocialLink>
-              <SocialLink href="#"><FaTwitter /></SocialLink>
-              <SocialLink href="#"><FaLinkedin /></SocialLink>
-              <SocialLink href="#"><FaInstagram /></SocialLink>
-            </SocialLinks>
-          </FooterSection>
-          
-          <FooterSection>
-            <SectionTitle>Quick Links</SectionTitle>
-            <FooterLinks>
-              <FooterLink><a href="#home">Home</a></FooterLink>
-              <FooterLink><a href="#services">Our Services</a></FooterLink>
-              <FooterLink><a href="#portfolio">Our Works</a></FooterLink>
-              <FooterLink><a href="#about">About Us</a></FooterLink>
-              <FooterLink><a href="#contact">Contact Us</a></FooterLink>
-            </FooterLinks>
-          </FooterSection>
-          
-          <FooterSection>
-            <SectionTitle>Services</SectionTitle>
-            <FooterLinks>
-              <FooterLink><a href="#services">Exhibitions</a></FooterLink>
-              <FooterLink><a href="#services">Events</a></FooterLink>
-              <FooterLink><a href="#services">Branding Spaces</a></FooterLink>
-              <FooterLink><a href="#services">Technology</a></FooterLink>
-              <FooterLink><a href="#services">Immersive Experiences</a></FooterLink>
-              <FooterLink><a href="#services">Display Solutions</a></FooterLink>
-            </FooterLinks>
-          </FooterSection>
-          
-          <FooterSection>
-            <SectionTitle>Get In Touch</SectionTitle>
-            <ContactItem>
-              <ContactIcon><FaMapMarkerAlt /></ContactIcon>
-              <span>123 Business District, New York, NY 10001</span>
-            </ContactItem>
-            <ContactItem>
-              <ContactIcon><FaEnvelope /></ContactIcon>
-              <span>info@perfection.com</span>
-            </ContactItem>
-            <ContactItem>
-              <ContactIcon><FaPhone /></ContactIcon>
-              <span>+1 (555) 123-4567</span>
-            </ContactItem>
-          </FooterSection>
-        </FooterGrid>
-        
-        <FooterBottom>
-          <Copyright>
-            Perfection All rights reserved 2025 ©
-          </Copyright>
-          <BottomLinks>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">FAQ</a>
-          </BottomLinks>
-        </FooterBottom>
+        <LeftSection>
+          <LocationSection>
+            <LocationTitle>Riyadh | Egypt | Syria</LocationTitle>
+            <ContactInfo>
+              <PhoneNumber href="tel:+966538889503">+966 53 889 503</PhoneNumber>
+              <PhoneNumber href="tel:+966599612805">+966 59 961 2805</PhoneNumber>
+              <PhoneNumber href="tel:+201154552281">+20 11 5455 22 81</PhoneNumber>
+              <PhoneNumber href="tel:+963952712629">+963 95 271 2629</PhoneNumber>
+              <EmailAddress href="mailto:info@perfection.com">info@perfection.com</EmailAddress>
+            </ContactInfo>
+          </LocationSection>
+        </LeftSection>
+
+        <CenterSection>
+            <Logo src="/assets/images/perfection-logo.png" alt="Perfection Logo" />
+          <CompanyName>
+            <CompanyTitle>PERFECTION</CompanyTitle>
+            <CompanySubtitle>FOR ADVERTISING</CompanySubtitle>
+          </CompanyName>
+        </CenterSection>
+
+        <RightSection>
+          <TaglineSection>
+            <TaglinePrimary>Creative minds.</TaglinePrimary>
+            <TaglineSecondary>Sharp execution.</TaglineSecondary>
+            <TaglineTertiary>We've got it handled.</TaglineTertiary>
+          </TaglineSection>
+          <SocialIcons>
+            <SocialIcon href="#" aria-label="Instagram">
+              <FaInstagram />
+            </SocialIcon>
+            <SocialIcon href="#" aria-label="TikTok">
+              <FaTiktok />
+            </SocialIcon>
+            <SocialIcon href="#" aria-label="LinkedIn">
+              <FaLinkedin />
+            </SocialIcon>
+          </SocialIcons>
+        </RightSection>
       </FooterContent>
     </FooterContainer>
   );

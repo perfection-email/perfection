@@ -1,218 +1,99 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaPhone, FaEnvelope, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const HeaderContainer = styled.header`
-  background: #1a1a1a;
-  color: white;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: ${props => props.scrolled ? 'rgba(30, 30, 30, 0.95)' : 'transparent'};
+  transition: all 0.3s ease;
+  padding: 20px 0;
+  box-shadow: ${props => props.scrolled ? '0 2px 10px rgba(0, 0, 0, 0.3)' : 'none'};
 `;
 
-const TopBar = styled.div`
-  background: #000;
-  padding: 10px 0;
-  font-size: 14px;
-`;
-
-const TopBarContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+const HeaderContent = styled.div`
+  width: 100%;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+`;
 
+const LogoContainer = styled.div`
+  padding-left: 30px;
+  
   @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 10px;
+    padding-left: 20px;
   }
-`;
-
-const ContactInfo = styled.div`
-  display: flex;
-  gap: 30px;
-
-  @media (max-width: 768px) {
-    gap: 20px;
-    text-align: center;
-  }
-`;
-
-const ContactItem = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`;
-
-const MainNav = styled.nav`
-  padding: 15px 0;
-`;
-
-const NavContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
 `;
 
 const Logo = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 28px;
-  font-weight: bold;
   color: white;
-  letter-spacing: 1px;
 `;
 
-const NavMenu = styled.ul`
+const LogoImage = styled.img`
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+`;
+
+const NavContainer = styled.div`
+  padding-right: 30px;
+  
+  @media (max-width: 768px) {
+    padding-right: 20px;
+  }
+`;
+
+const Nav = styled.nav`
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 30px;
+  align-items: center;
+  gap: 40px;
 
   @media (max-width: 768px) {
     position: fixed;
-    top: 120px;
+    top: 0;
     left: 0;
     width: 100%;
-    background: #1a1a1a;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
     flex-direction: column;
-    padding: 20px 0;
+    justify-content: center;
+    gap: 30px;
     transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
     transition: transform 0.3s ease;
+    padding: 0;
   }
 `;
 
-const NavItem = styled.li`
-  position: relative;
-  
-  a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    
-    &:hover {
-      color: #ffa500;
+const NavLink = styled(Link)`
+  color: ${props => {
+    // If on home page or about page, use white for non-active links
+    if (props.isHomePage || props.isAboutPage) {
+      return props.isActive ? '#ff6b35' : 'white';
     }
-
-    &.active {
-      color: #ffa500;
-    }
-  }
-
-  @media (max-width: 768px) {
-    text-align: center;
-    padding: 10px 0;
-  }
-`;
-
-const ServicesNavItem = styled(NavItem)`
-  &:hover > div {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(10px);
-  }
-
-  @media (max-width: 768px) {
-    &:hover > div {
-      display: block;
-    }
-  }
-`;
-
-const DropdownMenu = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  width: 220px;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  opacity: ${props => props.isOpen ? 1 : 0};
-  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
-  transform: translateY(${props => props.isOpen ? '10px' : '0'});
-  transition: all 0.3s ease;
-  z-index: 1000;
-  overflow: hidden;
-
-  @media (max-width: 768px) {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-    margin-top: 10px;
-    display: ${props => props.isOpen ? 'block' : 'none'};
-    transform: none;
-  }
-`;
-
-const DropdownItem = styled.div`
-  padding: 15px 20px;
-  color: #333;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border-bottom: 1px solid #f1f1f1;
-
-  &:last-child {
-    border-bottom: none;
-  }
-
-  &:hover {
-    background: #f8f8f8;
-    color: #ffa500;
-  }
-
-  @media (max-width: 768px) {
-    background: #2a2a2a;
-    color: white;
-    border-bottom: 1px solid #3a3a3a;
-
-    &:hover {
-      background: #3a3a3a;
-    }
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const QuoteButton = styled(Link)`
-  background: #ffa500;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    // Otherwise use orange with different opacity based on active state
+    return props.isActive ? '#ff6b35' : 'rgba(255, 107, 53, 0.7)';
+  }};
   text-decoration: none;
-  display: inline-block;
-  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  position: relative;
 
   &:hover {
-    background: #e69500;
+    color: #ff6b35;
   }
 
   @media (max-width: 768px) {
-    margin-top: 20px;
+    font-size: 1.2rem;
   }
 `;
 
@@ -221,8 +102,9 @@ const MobileMenuToggle = styled.button`
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: pointer;
+  z-index: 1001;
 
   @media (max-width: 768px) {
     display: block;
@@ -231,79 +113,85 @@ const MobileMenuToggle = styled.button`
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  
+  // Check if on home page or about page
+  const isHomePage = location.pathname === '/';
+  const isAboutPage = location.pathname === '/about';
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const toggleServicesDropdown = () => {
-    setServicesDropdownOpen(!servicesDropdownOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
 
-  const serviceCategories = [
-    { name: "Exhibitions", path: "/exhibitions" },
-    { name: "Technology", path: "/technology" },
-    { name: "Events", path: "/events" },
-    { name: "Environments", path: "/environments" },
-    { name: "Immersive Experiences", path: "/immersive-experiences" },
-    { name: "Display Systems", path: "/display-systems" }
-  ];
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
 
   return (
-    <HeaderContainer>
-      <TopBar>
-        <TopBarContent>
-          <ContactInfo>
-            <ContactItem>
-              <FaPhone />
-              <span>+966 555037548</span>
-            </ContactItem>
-            <ContactItem>
-              <FaEnvelope />
-              <span>info@perfection.com</span>
-            </ContactItem>
-          </ContactInfo>
-          <div>
-            <QuoteButton to="/get-quote">Get Quote</QuoteButton>
-          </div>
-        </TopBarContent>
-      </TopBar>
-      
-      <MainNav>
-        <NavContent>
+    <HeaderContainer scrolled={scrolled}>
+      <HeaderContent>
+        <LogoContainer>
           <Logo to="/">
-            PERFECTION
+            <LogoImage src="/assets/images/perfection-logo.png" alt="Perfection Logo" />
           </Logo>
-          
-          <NavMenu isOpen={mobileMenuOpen}>
-            <NavItem><Link to="/">Home</Link></NavItem>
-            <ServicesNavItem>
-              <a href="#" onClick={(e) => {
-                e.preventDefault();
-                toggleServicesDropdown();
-              }}>
-                Our Services <FaChevronDown />
-              </a>
-              <DropdownMenu isOpen={servicesDropdownOpen}>
-                {serviceCategories.map((category, index) => (
-                  <DropdownItem key={index}>
-                    <Link to={category.path}>{category.name}</Link>
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </ServicesNavItem>
-            <NavItem><Link to="/our-works">Our works</Link></NavItem>
-            <NavItem><Link to="/factory">Factory</Link></NavItem>
-            <NavItem><Link to="/about">About Us</Link></NavItem>
-            <NavItem><Link to="/get-quote">Contact us</Link></NavItem>
-          </NavMenu>
-          
+        </LogoContainer>
+
+        <NavContainer>
+          <Nav isOpen={mobileMenuOpen}>
+            <NavLink 
+              to="/our-services" 
+              onClick={() => setMobileMenuOpen(false)} 
+              isActive={location.pathname === '/our-services'}
+              isHomePage={isHomePage}
+              isAboutPage={isAboutPage}
+            >
+              Our Services
+            </NavLink>
+            <NavLink 
+              to="/projects" 
+              onClick={() => setMobileMenuOpen(false)} 
+              isActive={location.pathname === '/projects'}
+              isHomePage={isHomePage}
+              isAboutPage={isAboutPage}
+            >
+              Projects
+            </NavLink>
+            <NavLink 
+              to="/about" 
+              onClick={() => setMobileMenuOpen(false)} 
+              isActive={location.pathname === '/about'}
+              isHomePage={isHomePage}
+              isAboutPage={isAboutPage}
+            >
+              About Us
+            </NavLink>
+            <NavLink 
+              to="/contact" 
+              onClick={() => setMobileMenuOpen(false)} 
+              isActive={location.pathname === '/contact'}
+              isHomePage={isHomePage}
+              isAboutPage={isAboutPage}
+            >
+              Contact Us
+            </NavLink>
+          </Nav>
+
           <MobileMenuToggle onClick={toggleMobileMenu}>
             {mobileMenuOpen ? <FaTimes /> : <FaBars />}
           </MobileMenuToggle>
-        </NavContent>
-      </MainNav>
+        </NavContainer>
+      </HeaderContent>
     </HeaderContainer>
   );
 };

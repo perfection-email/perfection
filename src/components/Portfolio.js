@@ -5,12 +5,28 @@ import { Link } from 'react-router-dom';
 const PortfolioContainer = styled.section`
   padding: 100px 0;
   background: #f8f9fa;
+  
+  @media (max-width: 768px) {
+    padding: 80px 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 60px 0;
+  }
 `;
 
 const PortfolioContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 10px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -22,6 +38,16 @@ const SectionTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 1.6rem;
   }
 `;
 
@@ -33,6 +59,18 @@ const SectionSubtitle = styled.p`
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    max-width: 90%;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    max-width: 95%;
+  }
 `;
 
 const FilterButtons = styled.div`
@@ -41,6 +79,16 @@ const FilterButtons = styled.div`
   gap: 20px;
   margin-bottom: 60px;
   flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 15px;
+    margin-bottom: 50px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 10px;
+    margin-bottom: 40px;
+  }
 `;
 
 const FilterButton = styled.button`
@@ -52,10 +100,22 @@ const FilterButton = styled.button`
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
 
   &:hover {
     background: #ffa500;
     color: white;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 20px;
   }
 `;
 
@@ -63,6 +123,16 @@ const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 const ProjectCard = styled.div`
@@ -74,6 +144,14 @@ const ProjectCard = styled.div`
 
   &:hover {
     transform: translateY(-5px);
+  }
+  
+  @media (max-width: 768px) {
+    border-radius: 8px;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
   }
 `;
 
@@ -99,10 +177,26 @@ const ProjectImage = styled.div`
   &:hover::after {
     opacity: 1;
   }
+  
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 180px;
+  }
 `;
 
 const ProjectInfo = styled.div`
   padding: 25px;
+  
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 15px;
+  }
 `;
 
 const ProjectTitle = styled.h3`
@@ -110,18 +204,49 @@ const ProjectTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 10px;
   color: #333;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
 `;
 
 const ProjectDescription = styled.p`
   color: #666;
   line-height: 1.6;
   margin-bottom: 15px;
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
 `;
 
 const ProjectDate = styled.div`
   color: #999;
   font-size: 0.9rem;
   margin-bottom: 15px;
+  
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const ViewMoreButton = styled(Link)`
@@ -138,6 +263,18 @@ const ViewMoreButton = styled(Link)`
 
   &:hover {
     background: #e69500;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
   }
 `;
 
