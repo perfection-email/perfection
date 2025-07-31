@@ -89,7 +89,7 @@ src/
 ## 📧 Contact Information
 
 For inquiries about this project:
-- Email: info@perfection.marketing
+- Email: contact@perfection.marketing
 - Phone: +1 (555) 123-4567
 
 ## 📄 License
