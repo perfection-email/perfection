@@ -291,12 +291,12 @@ const Quote = () => {
     {
       icon: <FaWhatsapp />,
       title: "WhatsApp",
-      text: "+966555037548"
+      text: "+966599612805"
     },
     {
       icon: <FaEnvelope />,
       title: "Email",
-      text: "info@perfection.com"
+      text: "info@perfection.marketing"
     },
     {
       icon: <FaPhone />,

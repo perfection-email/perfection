@@ -223,13 +223,11 @@ const Footer = () => {
       <FooterContent>
         <LeftSection>
           <LocationSection>
-            <LocationTitle>Riyadh | Egypt | Syria</LocationTitle>
+            <LocationTitle>Riyadh | Jeddah | Egypt</LocationTitle>
             <ContactInfo>
-              <PhoneNumber href="tel:+966538889503">+966 53 889 503</PhoneNumber>
               <PhoneNumber href="tel:+966599612805">+966 59 961 2805</PhoneNumber>
-              <PhoneNumber href="tel:+201154552281">+20 11 5455 22 81</PhoneNumber>
-              <PhoneNumber href="tel:+963952712629">+963 95 271 2629</PhoneNumber>
-              <EmailAddress href="mailto:info@perfection.com">info@perfection.com</EmailAddress>
+              <PhoneNumber href="tel:+966598391060">+966 59 839 1060</PhoneNumber>
+              <EmailAddress href="mailto:info@perfection.marketing">info@perfection.marketing</EmailAddress>
             </ContactInfo>
           </LocationSection>
         </LeftSection>

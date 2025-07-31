@@ -368,14 +368,19 @@ const ContactUs = () => {
             846 Al Faisaliyyah, Riyadh Saudi Arabia
           </LocationAddress>
           <LocationPhone>
-            <PhoneNumber href="tel:+966538895036">+966 53 889 5036</PhoneNumber>
             <PhoneNumber href="tel:+966599612805">+966 59 961 2805</PhoneNumber>
+            <PhoneNumber href="tel:+966598391060">+966 59 839 1060</PhoneNumber>
           </LocationPhone>
           <MapContainer>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.4!2d46.686!3d24.7136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ5LjAiTiA0NsKwNDEnMDkuNiJF!5e0!3m2!1sen!2s!4v1234567890"
-              title="Riyadh Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3626.497150560089!2d46.7954925!3d24.6410104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f07d09721fa93%3A0x840100d1719f0b15!2zUkVGQTQxNDTYjCA0MTQ0INmI2KfYr9mKINin2YTZhdi52YTZgtiMIDc2NjUsIEFsIEZhaXNhbGl5eWFoLCBSaXlhZGggMTI4OTQsIFNhdWRpIEFyYWJpYQ!5e0!3m2!1sen!2s!4v1753983951666!5m2!1sen!2s"
+              width="600"
+              height="450"
+              style={{border: 0}}
+              allowFullScreen=""
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Riyadh Location"
             ></iframe>
           </MapContainer>
         </LocationCard>
@@ -383,33 +388,43 @@ const ContactUs = () => {
         <LocationCard>
           <LocationTitle>Egypt</LocationTitle>
           <LocationAddress>
-            68 food street, alexandria
+            68 foad street, Alexandria, egypt
           </LocationAddress>
           <LocationPhone>
-            <PhoneNumber href="tel:+201154552281">+20 11 5455 22 81</PhoneNumber>
+          <PhoneNumber href="tel:+966599612805">+966 59 961 2805</PhoneNumber>
           </LocationPhone>
           <MapContainer>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.5!2d29.9187!3d31.2001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDEyJzAwLjAiTiAyOcKwNTUnMDcuMiJF!5e0!3m2!1sen!2s!4v1234567890"
-              title="Egypt Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.8987144292973!2d29.895976185590953!3d31.195821597019894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c3ec7712c72b%3A0xc959e0fad0ebea7b!2s68%20Fouad%2C%20Al%20Attarin%20Sharq%2C%20Al%20Attarin%2C%20Alexandria%20Governorate%205372013%2C%20Egypt!5e0!3m2!1sen!2s!4v1753984406847!5m2!1sen!2s"
+              width="600"
+              height="450"
+              style={{border: 0}}
+              allowFullScreen=""
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Egypt Location"
             ></iframe>
           </MapContainer>
         </LocationCard>
         
         <LocationCard>
-          <LocationTitle>Syria</LocationTitle>
+          <LocationTitle>Jeddah</LocationTitle>
           <LocationAddress>
-            حمص حي الادخار بناء رقم 460
+            JABA7431, 7431 Ibrahim an Nafis, 4859، حي البغدادية الشرقية
           </LocationAddress>
           <LocationPhone>
-            <PhoneNumber href="tel:+963952712629">+963952712629</PhoneNumber>
+          <PhoneNumber href="tel:+966598391060">+966 59 839 1060</PhoneNumber>
           </LocationPhone>
           <MapContainer>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.2!2d36.7213!3d34.7394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDQ0JzIyLjAiTiAzNsKwNDMnMTcuMCJF!5e0!3m2!1sen!2s!4v1234567890"
-              title="Syria Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3712.210900990274!2d39.186341299999995!3d21.499457600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3cfa812f75a2f%3A0x9611adc39a199b5c!2zSkFCQTc0MzEsIDc0MzEgSWJyYWhpbSBhbiBOYWZpcywgNDg1OdiMINit2Yog2KfZhNio2LrYr9in2K_ZitipINin2YTYtNix2YLZitip2IwgSmVkZGFoIDIyMjM1LCBTYXVkaSBBcmFiaWE!5e0!3m2!1sen!2s!4v1753984183919!5m2!1sen!2s"
+              width="600"
+              height="450"
+              style={{border: 0}}
+              allowFullScreen=""
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Jeddah Location"
             ></iframe>
           </MapContainer>
         </LocationCard>
