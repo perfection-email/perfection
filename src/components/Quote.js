@@ -296,7 +296,7 @@ const Quote = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      text: "info@perfection.marketing"
+      text: "contact@perfection.marketing"
     },
     {
       icon: <FaPhone />,
