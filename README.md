@@ -89,13 +89,13 @@ src/
 ## 📧 Contact Information
 
 For inquiries about this project:
-- Email: info@perfection.com
+- Email: info@perfection.marketing
 - Phone: +1 (555) 123-4567
 
 ## 📄 License
 
-This project is created for demonstration purposes. All rights reserved.
+This project is created for perfection company. All rights reserved.
 
 ---
 
-Built with ❤️ using React.js and modern web technologies.
+Built with ❤️ using by skal.ai.
