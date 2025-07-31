@@ -227,7 +227,7 @@ const Footer = () => {
             <ContactInfo>
               <PhoneNumber href="tel:+966599612805">+966 59 961 2805</PhoneNumber>
               <PhoneNumber href="tel:+966598391060">+966 59 839 1060</PhoneNumber>
-              <EmailAddress href="mailto:info@perfection.marketing">info@perfection.marketing</EmailAddress>
+              <EmailAddress href="mailto:contact@perfection.marketing">contact@perfection.marketing</EmailAddress>
             </ContactInfo>
           </LocationSection>
         </LeftSection>
