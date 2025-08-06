@@ -92,7 +92,7 @@ const ProjectsTitle = styled.h1`
   z-index: 2;
   
   @media (max-width: 1200px) {
-    font-size: 15rem;
+    font-size: 13rem;
   }
   
   @media (max-width: 992px) {
