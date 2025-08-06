@@ -83,7 +83,7 @@ const DiscoverText = styled.h2`
 `;
 
 const ProjectsTitle = styled.h1`
-  font-size: 20rem;
+  font-size: 15rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   margin-bottom: 40px;
