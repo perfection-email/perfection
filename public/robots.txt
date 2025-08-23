@@ -1,3 +1,36 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
+# Explicitly allow known good bots
+User-agent: Googlebot
 Disallow:
+
+User-agent: Applebot-Extended
+Disallow:
+
+User-agent: FacebookBot
+Disallow:
+
+User-agent: GPTBot
+Disallow:
+
+User-agent: Bytespider
+Disallow:
+
+User-agent: ClaudeBot
+Disallow:
+
+User-agent: Claude-Web
+Disallow:
+
+User-agent: Diffbot
+Disallow:
+
+User-agent: CCBot
+Disallow:
+
+User-agent: Meta-ExternalAgent
+Disallow:
+
+# Add more known good agents as needed...
+
+# Block all other (unknown) bots
+User-agent: *
+Disallow: /
